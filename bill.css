@@ -23,7 +23,13 @@ h1 {
     display: flex;
     justify-content: center;
     padding: 20px;
+    transition: ease .2s;
 }
+
+h1:hover {
+    scale: 1.1;
+}
+
 
 .box {
     display: flex;
@@ -51,9 +57,8 @@ span {
 }
 
 #txtError {
-
+    text-align: center;
     color: red;
-
 }
 
 #btnCalculate {
@@ -67,6 +72,29 @@ span {
 #btnCalculate:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
-    border: 2px solid rgb(255, 255, 255);
+    scale: 1.1;
+}
 
+#resultWaterBill {
+    transition: ease .2s;
+}
+
+#resultWaterBill:hover {
+    scale: 1.2;
+}
+
+#resultEnvironmentalFee {
+    transition: ease .2s;
+}
+
+#resultEnvironmentalFee:hover {
+    scale: 1.2;
+}
+
+#resultTotal {
+    transition: ease .2s;
+}
+
+#resultTotal:hover {
+    scale: 1.2;
 }

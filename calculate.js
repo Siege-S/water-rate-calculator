@@ -1,4 +1,13 @@
 $(document).ready(() => {
+    $('#selectClassification').click(() => {
+        const checkClass = $('#selectClassification').val();
+        if (checkClass !== "") {
+            $('#txtError').hide();
+        }
+    })
+
+
+
     $('#btnCalculate').click(() => {
         let txtConsumption = $('#txtConsumption').val();
         const selectClassification = $('#selectClassification').val();
@@ -8,17 +17,27 @@ $(document).ready(() => {
         let total;
 
         if (txtConsumption != "" && selectClassification != "") {
-            //Hide Error
+            // Hide Error
             $('#txtError').hide();
+
+            // Consumption Error (Cannot be less than Zero)
+            if (txtConsumption < 0) {
+                $('#txtError').text('Consumption cannot be less than zero (' + txtConsumption + ')');
+                $('#txtError').show();
+                return;
+            }
 
             console.log(`${selectClassification}, Consumption: ${txtConsumption}`)
 
+            // Switch Case for Select Option
             switch (selectClassification) {
                 case "Bulk Water":
                     resultWaterBill = calcBulkWater(txtConsumption);
 
                     totalEnvironmentalFee = 0;
                     total = resultWaterBill + totalEnvironmentalFee;
+
+                    // Display Results
                     $('#resultWaterBill').text(`Water Bill: ₱${resultWaterBill.toFixed(2)}`);
                     $('#resultEnvironmentalFee').text(`Environmental Fee: ₱${totalEnvironmentalFee.toFixed(2)}`);
                     $('#resultTotal').text(`Total: ₱${total.toFixed(2)}`)
@@ -28,6 +47,8 @@ $(document).ready(() => {
 
                     totalEnvironmentalFee = 0;
                     total = resultWaterBill + totalEnvironmentalFee;
+
+                    // Display Results
                     $('#resultWaterBill').text(`Water Bill: ₱${resultWaterBill.toFixed(2)}`);
                     $('#resultEnvironmentalFee').text(`Environmental Fee: ₱${totalEnvironmentalFee.toFixed(2)}`);
                     $('#resultTotal').text(`Total: ₱${total.toFixed(2)}`)
@@ -37,6 +58,8 @@ $(document).ready(() => {
 
                     totalEnvironmentalFee = txtConsumption * environmentalFee;
                     total = resultWaterBill + totalEnvironmentalFee;
+
+                    // Display Results
                     $('#resultWaterBill').text(`Water Bill: ₱${resultWaterBill.toFixed(2)}`);
                     $('#resultEnvironmentalFee').text(`Environmental Fee: ₱${totalEnvironmentalFee.toFixed(2)}`);
                     $('#resultTotal').text(`Total: ₱${total.toFixed(2)}`);
@@ -46,18 +69,22 @@ $(document).ready(() => {
 
                     totalEnvironmentalFee = txtConsumption * environmentalFee;
                     total = resultWaterBill + totalEnvironmentalFee;
+
+                    // Display Results
                     $('#resultWaterBill').text(`Water Bill: ₱${resultWaterBill.toFixed(2)}`);
                     $('#resultEnvironmentalFee').text(`Environmental Fee: ₱${totalEnvironmentalFee.toFixed(2)}`);
                     $('#resultTotal').text(`Total: ₱${total.toFixed(2)}`)
                     break;
             }
         } if (selectClassification == "") {
+            // Display Error
             $('#txtError').text('Please Choose a Class');
             $('#txtError').show();
             $('#resultWaterBill').text('Water Bill: ');
             $('#resultEnvironmentalFee').text('Environmental Fee:');
             $('#resultTotal').text('Total: ');
         } else if (txtConsumption == "") {
+            // Display Error
             $('#txtError').text('Please Enter the Amount of Consumption');
             $('#txtError').show();
             $('#resultWaterBill').text('Water Bill: ');
