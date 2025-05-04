@@ -1,42 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="bill.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Water Rate Calculator</title>
+    <link rel="stylesheet" href="bill.css" />
+  </head>
+  <body>
+    <h1>Water Rate Calculator</h1>
 
-    <h1>
-        Water Rate Calculator
-    </h1>
     <div class="box">
-        <span id="txtError"></span>
-        <select name="classification" id="selectClassification">
-            <option value="">Select Class</option>
-            <option value="Bulk Water">Bulk Water</option>
-            <option value="Full Commercial">Full Commercial</option>
-            <option value="Government">Government</option>
-            <option value="Residential">Residential</option>
-        </select>
+      <span id="txtError"></span>
 
-        <div class="box-input">
-            <span >Consumption</span>
-            <input type="number" min="0" id="txtConsumption">
-            <button id="btnCalculate">Calculate</button>
+      <div class="check-boxes" id="checkBoxes">
+        <div>
+          <input type="checkbox" id="checkProRated" /> <span>Pro Rated</span>
         </div>
-        
-        <div class="result">
-            <span id="resultWaterBill">Water bill:</span>
-            <span id="resultEnvironmentalFee">Environmental Fee:</span>
-            <span id="resultTotal">Total:</span> 
+
+        <div>
+          <input type="checkbox" id="checkSeniorDiscount" />
+          <span>Senior Discount</span>
         </div>
+      </div>
+      <div class="box-input">
+        <span>Consumption</span>
+        <input type="number" min="0" id="txtConsumption" />
+        <select name="classification" id="selectClassification">
+          <option value="">Select Class</option>
+          <option value="Bulk Water">Bulk Water</option>
+          <option value="Full Commercial">Full Commercial</option>
+          <option value="Government">Government</option>
+          <option value="Residential" id="optionResidential">
+            Residential
+          </option>
+        </select>
+      </div>
+
+      <div class="result">
+        <span id="resultWaterBill">Water bill:</span>
+        <span id="resultEnvironmentalFee">Environmental Fee:</span>
+        <span id="resultTotalDiscount">Total Discount:</span>
+        <span id="resultTotal">Total:</span>
+      </div>
+
+      <div class="box-btnCalculate">
+        <button id="btnCalculate">Calculate</button>
+      </div>
     </div>
 
-    
+    <!-- <div style="overflow-x: auto">
+      <table>
+        <th colspan="7">Water Bill Rates</th>
+        <tr>
+          <td>Class</td>
+          <td>Minimum</td>
+          <td>11-20</td>
+          <td>21-30</td>
+          <td>31-40</td>
+          <td>41-50</td>
+          <td>51-Up</td>
+        </tr>
+        <tr>
+          <td>Bulk Water</td>
+          <td>161.3</td>
+          <td>16.13</td>
+          <td>16.13</td>
+          <td>16.13</td>
+          <td>16.13</td>
+          <td>16.13</td>
+        </tr>
+        <tr>
+          <td>Full Commercial</td>
+          <td>416.64</td>
+          <td>43.68</td>
+          <td>46.37</td>
+          <td>49.73</td>
+          <td>53.76</td>
+          <td>58.46</td>
+        </tr>
+        <tr>
+          <td>Government</td>
+          <td>208.32</td>
+          <td>21.84</td>
+          <td>23.18</td>
+          <td>24.86</td>
+          <td>26.88</td>
+          <td>29.23</td>
+        </tr>
+        <tr>
+          <td>Residential</td>
+          <td>208.32</td>
+          <td>21.84</td>
+          <td>23.18</td>
+          <td>24.86</td>
+          <td>26.88</td>
+          <td>29.23</td>
+        </tr>
+      </table>
+    </div> -->
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
     <script src="calculate.js"></script>
-</body>
+  </body>
 </html>

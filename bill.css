@@ -3,68 +3,130 @@
 
 * {
     padding: 0px;
-
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: rgba(130, 182, 231, 0.505);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-size: larger;
     font-family: 'Poppins', sans-serif;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
 
+
+    background: url('./images/bg-water.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 h1 {
+    font-size: 40px;
     font-family: sans-serif;
     text-align: center;
-    color: rgb(80, 80, 200);
+    color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     padding: 20px;
     transition: ease .2s;
+    margin: 50px 0;
 }
 
 h1:hover {
     scale: 1.1;
 }
 
-
 .box {
     display: flex;
+    min-height: 300px;
+    max-height: 400px;
+    padding: 30px;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    min-width: 500px;
+    background-color: rgba(255, 255, 255, 0.251);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: -5px 5px 15px;
+    margin-bottom: 100px;
+}
+
+
+.box-input {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
 }
 
 .result {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: center;
-    margin: 20px 0px;
-
+    align-items: start;
 }
 
 select {
     width: auto;
+    color: white;
     font-size: 18px;
+    background-color: rgba(240, 248, 255, 0);
+    backdrop-filter: blur(2px);
+    border: 1PX solid black;
+    border-radius: 5px;
+    text-align: center;
+  
+}
+
+select option {
+    color: black;
+    
 }
 
 span {
+    color: white;
     padding: 5px;
 }
 
 #txtError {
     text-align: center;
-    color: red;
+    color: rgba(177, 0, 0, 0.765);
 }
 
+#txtConsumption {
+    color: white;
+    background-color: rgba(240, 248, 255, 0);
+    width: 100px;
+    margin: 0 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1PX solid black;
+    backdrop-filter: blur(2px);
+    text-align: center;
+}
+
+.box-btnCalculate {
+    width: 100%;
+}
 #btnCalculate {
+    display: block;
+    
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     cursor: pointer;
     border: 1px solid black;
-    padding: 3px;
+    padding: 10px 0px;
     border-radius: 5px;
     transition: ease .2s;
 }
@@ -75,26 +137,44 @@ span {
     scale: 1.1;
 }
 
-#resultWaterBill {
+#resultWaterBill,
+#resultEnvironmentalFee,
+#resultTotal,
+#resultTotalDiscount{
     transition: ease .2s;
 }
 
-#resultWaterBill:hover {
+#resultWaterBill:hover,
+#resultEnvironmentalFee:hover,
+#resultTotal:hover,
+#resultTotalDiscount:hover{
     scale: 1.2;
 }
 
-#resultEnvironmentalFee {
-    transition: ease .2s;
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    
+}
+th, td{
+    border: 1px solid black;
+    padding: 10px 30px;
+    color: rgb(0, 0, 0);
+    background-color: white;
 }
 
-#resultEnvironmentalFee:hover {
-    scale: 1.2;
+#resultTotalDiscount {
+    display: none;
 }
 
-#resultTotal {
-    transition: ease .2s;
+.check-boxes {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+   
 }
 
-#resultTotal:hover {
-    scale: 1.2;
+.check-boxes div {
+    display: inline;
 }
